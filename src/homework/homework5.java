@@ -58,6 +58,25 @@ public class homework5 {
 
         }
 
+        //task 2 new method.
+        double myScore1=180;
+        int maxScore1=200;
+        double findAver=myScore1/maxScore1*100;
+        char grade=' ';
+        if (findAver>=91.0) {
+            grade = 'A';
+        }else if (findAver>=81.0) {
+            grade = 'B';
+        }else if (findAver>=71) {
+            grade = 'C';
+        }else if (findAver>=61.0) {
+            grade = 'D';
+        }else if (findAver<61.0) {
+            grade = 'E';
+        }else System.out.println("Invalid student score entered");
+        System.out.println(grade);
+
+            }
 
 
 
@@ -70,4 +89,13 @@ public class homework5 {
 
 
 
-        }
+
+
+
+
+
+
+
+
+
+
