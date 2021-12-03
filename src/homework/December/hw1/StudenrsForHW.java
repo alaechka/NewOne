@@ -5,6 +5,7 @@ import com.sun.codemodel.internal.JCatchBlock;
 import com.sun.org.apache.xml.internal.utils.XMLStringFactory;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class StudenrsForHW {
@@ -17,6 +18,9 @@ public class StudenrsForHW {
     String courseName;
     String[] courseNames = {"Dev", "QA", "PA"};
     Scanner input = new Scanner(System.in);
+    String da = "yes";
+    String newDa=da.toLowerCase();
+
 
 
     public void newenroll() {
@@ -79,7 +83,7 @@ public class StudenrsForHW {
                 }
             }
             if (isCourseValid) {
-                System.out.println("Welcome" + sName);
+                System.out.println("Welcome" + sName+"your id is:"+studentID);
             } else {
                 System.out.println("incorrect course name ");
             }
@@ -87,14 +91,44 @@ public class StudenrsForHW {
     }
 
 
-    //change name
-    //input new name
-    //return type -no
+    //change name//////////////////////////////////////////////////////////////////////////////////////////////
+    //input new name///////////////////////////////////////////////////////////////////////////////////////
+    //return type -no////////////////////////////////////////////////////
 
-    public void changeName(String newName) {
-        name = newName;
+    public void changeName() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Would you like to change your name?");
+        try {
+            String answer=input.next(da);  //code works only if user enter answer "yes" in lowercase.
+                                           //can not understand where is exactly create equal.ignorecase
 
+        } catch (InputMismatchException d) {
+            System.out.println("You save your previous name");
+
+        }
+
+        System.out.println("Please enter your new name:");
+        try {
+            String nName = input.next(name);//
+
+            if (nName.equalsIgnoreCase(name)) {
+                System.out.println("You have already used this name.Please enter new name.You have 2 tries left:");
+                nName = input.next(name);
+                if (nName.equalsIgnoreCase(name)) {
+                    System.out.println("You have already used this name.Please enter new name. You have 1 try left:");
+                    nName = input.next(name);
+                    if (nName.equalsIgnoreCase(name)) {
+                        System.out.println("Sorry, you entered the previous name three times. Please, try again in 10 minutes");
+
+                    }
+
+                }
+            }
+        } catch (InputMismatchException s) {
+            System.out.println("Your name has been successfully changed!");
+        }
     }
+
 
     public void changeState() {
 
@@ -124,6 +158,25 @@ public class StudenrsForHW {
         }
     }
 
+             //show summery if correct id provided
+            public void showSumifId(){
+               try {
+
+                   System.out.println("If you would like to see your summery,please enter your ID:");
+
+                   int myId = input.nextInt(studentID);
+
+               ///здесь должен быть ответ ты ввел вронг айди
+                   if (myId == studentID) {
+                       showSummery();
+                   }
+
+
+               }catch (InputMismatchException w) {
+                   System.out.println("ID is incorrect");
+               }
+
+               }
 
 
 
@@ -156,7 +209,14 @@ public class StudenrsForHW {
             }
 
         }
+
+
+
+
+
+
     }
+
 
 
 /**
