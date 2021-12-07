@@ -11,10 +11,6 @@ public class palindrome {
             word1 += word[word.length - i];
 
 
-
-
-
-
             }
             System.out.println(word1);
         boolean compare=first.equals(word1);
