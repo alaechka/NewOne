@@ -32,10 +32,20 @@ public class homework9 {
     }
 
 
+    }
 
 
 
-        }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,6 +57,14 @@ public class homework9 {
 
     //apple, sun, home,visa,apple,november, home,code,window
 
+    // task 2 . create a method that would return the values occurring more than one time in given string-array
+    //String [] words={"bla bla bla"};
+    //convert Array into list
+    //indexOf,lastIndexOf// если первый индекс слова и последний индекс слова не совпадают
+     //знчит эти слова нужно вывести в ретерн
+    //add// чтобы стор валью повторяющихся слов в лист нужно использовать адд метод
+    //if
+    //for
 
 
 
