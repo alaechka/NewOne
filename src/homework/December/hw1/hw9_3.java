@@ -1,9 +1,6 @@
 package homework.December.hw1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class hw9_3 {
     public static void main(String[] args) {
@@ -33,18 +30,19 @@ public class hw9_3 {
 
     }
 
-    public List<String> findDuplc(String[] inputArray) {
+    public Set<String> findDuplc(String[] inputArray) {
         List<String>inPut=Arrays.asList(inputArray);
+        Set<String> forRet= new HashSet<>();
         for (int i = 0; i <= inPut.size() - 1; i++) {
             String data = inPut.get(i);
             if (inPut.indexOf(data) != inPut.lastIndexOf(data))
-             {List<String> forReturn=Arrays.asList(data);
-                return forReturn;
+             forRet.add(data);
+
             }
 
-        }
 
-        return inPut;
+
+        return forRet;
     }
 }
 
