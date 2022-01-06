@@ -3,61 +3,48 @@ package homework.December.hw1;
 import java.util.*;
 
 public class hw10 {
-    //*
-    //     * Question-1:
-    //     * Create a hashMap with any numbers of key-value pairs from the user
-    //     * Key should be Integer
-    //     * Value should be String
-    //     *
-    //     * Create method that will print the keys with same value
-    //     *
-    //     * Input to method -> [ {101="happy"}, {102="peace"}, {103="Happy"}, {104="learn"}, {105="PEaCe"}, {106="HAPPY"} ]
-    //     * Output (print) ->
-    //     *      "happy" is present with 101, 103, 106 keys
-    //     *      "peace" is present with 102, 105 keys
-    //     *
-    //     * Input to method -> [ {111="happy"}, {98="peace"}, {10="LAugh"}, {55="learn"}, {101="Grow"} ]
-    //     * Output (print) ->
+
+
     public static void main(String[] args) {
 
+        hw10 dom=new hw10();
+        Map<Integer,String> inputMap= new HashMap<>();
+        inputMap.put(102,"f");
+        inputMap.put(107,"hj");
+        inputMap.put(108,"hj");
+        inputMap.put(101,"fjjj");
+        inputMap.put(110,"hj");
+        Map<Integer,String>ftftft=dom.returnDuplicatedValuesWithKeys(inputMap);
 
-        HashMap<Integer, String> numbersNames = new HashMap<>();
-        numbersNames.put(101, "happy");
-        numbersNames.put(102, "peace");
-        numbersNames.put(103, "sun");
-        numbersNames.put(104, "learn");
-        numbersNames.put(105, "peace");
-        numbersNames.put(106, "happy");
-        numbersNames.put(107, "sun");
+        System.out.println(ftftft);
 
-        Map<Integer, String> empty = new HashMap<>();
-
-            for (Map.Entry<Integer, String> entry : numbersNames.entrySet()) {
-                if (empty.containsKey(entry))
-                    System.out.println(entry.getKey());
-                //System.out.println(entry.getValue());
-
-
-                //Collection<String> zzz=numbersNames.values();
-                //System.out.println(zzz);
-                //String gfg=zzz.toString();
-                //String[] split=gfg.split(",");
-                //List<String> zzz=Arrays.asList(split);
-                //for (Map.Entry myEntry:numbersNames.entrySet())
-                // myEntry.getValue();
-                //String gfg=;
-                // String[] split=gfg.split(",");
-                // List<String> zzz=Arrays.asList(split);
-                //for (int i=0;i<.size();i++){
-                // String data=zzz.get(i);
-                // if (zzz.indexOf(data)!=zzz.lastIndexOf(data)){
-                // List<String>print=Arrays.asList(data);
-                // System.out.println(myEntry.getKey());
-
-            }
-
-        }
     }
+    public Map<Integer, String> returnDuplicatedValuesWithKeys(Map<Integer, String> inputMap) {
+        Set<String> inputSet = new HashSet<>();
+        for (Integer key : inputMap.keySet()) {
+            inputSet.add(inputMap.get(key).toLowerCase(Locale.ROOT));
+        }
+
+        for (String str : inputSet) {
+            int counter = 0;
+            String resultString = "";
+            for (Integer key : inputMap.keySet()) {
+                if (str.equalsIgnoreCase(inputMap.get(key))) {
+                    counter++;
+                    resultString = resultString + key + ", ";
+                }
+            }
+            if (counter > 1) {
+                System.out.println(str + " is present with: " + resultString.substring(0, resultString.length() - 2));
+            }
+        }
+
+        return inputMap;
+    }
+
+}
+
+
 
 
 
